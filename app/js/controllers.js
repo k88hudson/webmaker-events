@@ -6,16 +6,14 @@ angular.module('myApp.controllers', [])
       $scope.event = {};
       $scope.event.parsedNaturalStartDate = undefined;
       $scope.attemptedToSubmit = false;
-      $scope.isLoggedIn = false;
 
       // Set default values for form
       $scope.event.attendees = 0; // Unknown amount
       $scope.event.duration = 1; // 1 hour default
 
       // Keep email and login status up to date
-      $scope.$watch('_persona.email', function (newValue) {
-        $scope.isLoggedIn = !! newValue;
-        $scope.event.organizer = $scope._persona.email;
+      $scope.$watch('_user.email', function () {
+        $scope.event.organizer = $scope._user.email;
       });
 
       // Continuously translate natural language date to JS Date
