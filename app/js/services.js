@@ -51,6 +51,7 @@ angular.module('myApp.services', ['ngResource'])
       };
       $rootScope.logout = function () {
         navigator.id.logout();
+        $rootScope._user = {};
       };
 
       navigator.id.watch({
@@ -80,7 +81,7 @@ angular.module('myApp.services', ['ngResource'])
           });
         },
         onlogout: function () {
-          delete $rootScope._user;
+          $rootScope._user = {};
           $rootScope.$apply();
         }
       });
