@@ -28,6 +28,10 @@ angular.module('myApp.controllers', [])
       $scope.addEvent = function () {
         $scope.attemptedToSubmit = true;
 
+        if ($scope.addEventForm.$invalid) {
+          return window.scrollTo(0, 0);
+        }
+
         // Create a serialized event object to avoid modifying $scope
         var serializedEvent = {};
         angular.copy($scope.event, serializedEvent);

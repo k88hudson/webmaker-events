@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
   <nav class="navbar navbar-default" ng-controller="navController">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -24,8 +23,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-collapse" collapse="isCollapsed">
         <ul class="nav navbar-nav">
-          <li ng-class="{ active : isActive('/events') }"><a href="#/events">Upcoming Events</a></li>
-          <li ng-class="{ active : isActive('/add') }"><a href="#/add">Add Event</a></li>
+          <li ng-class="{ active : isActive('#/events') }"><a href="#/events">Upcoming Events</a></li>
+          <li ng-class="{ active : isActive('#/add') }"><a href="#/add">Add Event</a></li>
         </ul>
 
         <button ng-cloak ng-show="!_user.email" class="btn btn-primary btn-sm navbar-btn" ng-click="login()">Log In</button>
