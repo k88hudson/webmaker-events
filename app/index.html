@@ -23,8 +23,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-collapse" collapse="isCollapsed">
         <ul class="nav navbar-nav">
-          <li ng-class="{ active : isActive('#/events') }"><a href="#/events">Upcoming Events</a></li>
-          <li ng-class="{ active : isActive('#/add') }"><a href="#/add">Add Event</a></li>
+          <li ng-class="{ active : isActive('/events') }"><a href="#/events">Upcoming Events</a></li>
+          <li ng-class="{ active : isActive('/add') }"><a href="#/add">Add Event</a></li>
         </ul>
 
         <button ng-cloak ng-show="!_user.email" class="btn btn-primary btn-sm navbar-btn" ng-click="login()">Log In</button>
@@ -34,6 +34,7 @@
 
         <button ng-cloak class="btn btn-primary btn-sm navbar-btn" ng-show="_user.email" ng-click="logout()">Log Out</button>
       </div>
+
     </div>
   </nav>
 
