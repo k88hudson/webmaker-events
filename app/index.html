@@ -9,6 +9,38 @@
 </head>
 <body>
 
+  <div ng-controller="createUserController">
+    <script type="text/ng-template" id="myModalContent.html">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3 class="modal-title" id="myModalLabel">Welcome, <span class="email"></span></h3>
+          </div>
+          <div class="modal-body">
+            <form class="form">
+              <div class="form-group">
+                <label>Choose a username</label>
+                <input name="username" class="form-control">
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input name="mailingList" type="checkbox"> Send me email updates about Mozilla Webmaker and other projects
+                </label>
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input name="agree" type="checkbox"> I agree to your terms and conditions
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button class="create-user btn btn-primary" type="button">Create Account</button>
+          </div>
+        </div>
+    </script>
+  </div>
+
   <nav class="navbar navbar-default" ng-controller="navController">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,13 +67,15 @@
         <button ng-cloak class="btn btn-primary btn-sm navbar-btn" ng-show="_user.email" ng-click="logout()">Log Out</button>
       </div>
 
+
     </div>
   </nav>
 
   <div class="container" ng-view></div>
 
   <script src="https://login.persona.org/include.js"></script>
-  <script src="bower_components/webmaker-auth-client/dist/webmaker-auth-client-min.js"></script>
+  <script src="bower_components/eventEmitter/EventEmitter.js"></script>
+  <script src="bower_components/webmaker-auth-client/webmaker-auth-client.js"></script>
 
   <script src="bower_components/momentjs/min/moment.min.js"></script>
   <script src="bower_components/chrono/chrono.min.js"></script>
@@ -51,6 +85,7 @@
   <script src="bower_components/angular-resource/angular-resource.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>

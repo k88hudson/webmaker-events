@@ -38,9 +38,6 @@ config(['$routeProvider',
     });
   }
 ]).
-config(function ($httpProvider) {
-  $httpProvider.interceptors.push('authInterceptor');
-}).
 run(['$http', '$rootScope',
   function ($http, $rootScope) {
     // Jump to top of viewport when new views load
@@ -52,7 +49,7 @@ run(['$http', '$rootScope',
     $http
       .get('/config.json')
       .success(function (data) {
-        $rootScope._config = data;
+        $rootScope.config = data;
       });
   }
 ]);
