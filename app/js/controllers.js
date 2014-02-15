@@ -167,7 +167,6 @@ angular.module('myApp.controllers', [])
         var modalInstance = $modal.open({
           templateUrl: 'myModalContent.html'
         });
-
       });
     }
   ]);

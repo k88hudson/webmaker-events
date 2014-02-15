@@ -26,8 +26,22 @@ angular.module('myApp.services', ['ngResource'])
       $rootScope.logout = auth.logout;
 
       auth.on('login', function(user) {
-        console.log(user);
+        console.log('login', user);
         $rootScope._user = user;
+      });
+
+      auth.on('verify', function(user) {
+        console.log('verify', user);
+        $rootScope._user = user;
+      });
+
+      auth.on('logout', function(why) {
+        console.log('logout', why);
+        delete $rootScope._user;
+      });
+
+      auth.on('error', function(message, xhr) {
+        console.log('error', message, xhr);
       });
 
       auth.verify();
