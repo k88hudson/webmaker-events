@@ -11,22 +11,15 @@
 
   <div ng-controller="createUserController"></div>
 
-  <nav class="navbar navbar-default" ng-controller="navController">
+  <nav class="navbar navbar-default navbar-webmaker">
     <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
+
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="fa fa-bars fa-lg text-muted"></span>
-        </button>
-        <a class="navbar-brand" href="#">Webmaker Events</a>
+        <a href="https://webmaker.org" class="logo webmaker-logo"><img src="https://webmaker.org/img/logo.png"></a>
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="navbar-collapse" collapse="isCollapsed">
-        <ul class="nav navbar-nav">
-          <li ng-class="{ active : isActive('/events') }"><a href="#/events">Upcoming Events</a></li>
-          <li ng-class="{ active : isActive('/add') }"><a href="#/add">Add Event</a></li>
+        <ul class="nav navbar-nav navbar-right">
           <li class="dropdown" ng-cloak ng-show="_user.email">
             <a class="navbar-user-info dropdown-toggle">
               <img class="user-info-avatar" ng-src="{{_user.avatar}}"> Hi, <strong>{{_user.username}}</strong> <span class="caret"></span>
@@ -38,10 +31,34 @@
               <li><a ng-click="logout()"><span class="fa fa-sign-out"></span> Log Out</a></li>
             </ul>
           </li>
+          <li>
+            <button ng-cloak ng-show="!_user.email" class="btn btn-primary btn-sm navbar-btn" ng-click="login()">Log In</button>
+          </li>
         </ul>
-
-        <button ng-cloak ng-show="!_user.email" class="btn btn-primary btn-sm navbar-btn" ng-click="login()">Log In</button>
       </div>
+
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-inverse" ng-controller="navController">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="fa fa-bars fa-lg"></span>
+        </button>
+        <a class="navbar-brand" href="https://webmaker.org" tooltip="Back to Webmaker" tooltip-placement="bottom">
+          <span class="fa fa-reply"></span>
+        </a>
+      </div>
+      <div class="navbar-collapse" collapse="isCollapsed">
+        <ul class="nav navbar-nav">
+          <li ng-class="{ active : isActive('/') }"><a href="#">Events Home</a></li>
+          <li ng-class="{ active : isActive('/events') }"><a href="#/events">Upcoming Events</a></li>
+          <li ng-class="{ active : isActive('/add') }"><a href="#/add">Add Event</a></li>
+        </ul>
+      </div>
+
     </div>
   </nav>
 

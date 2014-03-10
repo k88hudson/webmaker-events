@@ -83,6 +83,33 @@ p {
   }
 }
 
+.visible-mobile-inline {
+  display: inline;
+  @media (min-width: @grid-float-breakpoint) {
+    display: none;
+  }
+}
+//  Navbar Header
+
+.navbar-webmaker {
+  margin-bottom: 0;
+  height: 50px;
+  display: none;
+  @media (min-width: @grid-float-breakpoint) {
+    display: block;
+  }
+  @media (min-width: @screen-lg-min) {
+    padding: 12px 0;
+    height: 90px;
+
+    .navbar-nav {
+      margin-top: 6px;
+    }
+
+  }
+}
+
+
 //  Angular Helpers -----------------------------------------------------------
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
