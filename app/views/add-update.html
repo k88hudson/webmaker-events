@@ -118,10 +118,11 @@
     <div class="alert alert-danger" ng-show="attemptedToSubmit && addEventForm.address.$invalid">{{ '_required_' | i18n }}</div>
     <div ng-controller="DatepickerDemoCtrl">
 
-    <div class="form-horizontal">
-        <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" />
-        <button class="btn" ng-click="open()"><i class="fa fa-calendar"></i></button>
-      </div>
+    <div class="input-group">
+      <input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="dt" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-default" ng-click="open()"><i class="fa fa-calendar"></i></button>
+      </span>
     </div>
     <div class="row">
 

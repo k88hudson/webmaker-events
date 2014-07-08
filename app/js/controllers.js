@@ -47,7 +47,8 @@ angular.module('myApp.controllers', [])
 
         $scope.dateOptions = {
           'year-format': "'yy'",
-          'starting-day': 1
+          'starting-day': 1,
+          'show-weeks': false
         };
       }
   ])
