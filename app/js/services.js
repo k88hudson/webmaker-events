@@ -2,7 +2,6 @@
 
 angular.module('myApp.services', ['ngResource'])
   .constant('config', window.eventsConfig)
-  .constant('chrono', window.chrono)
   .constant('analytics', window.analytics)
   .factory('loadGoogleMaps', ['$window',
     function ($window) {
@@ -113,8 +112,8 @@ angular.module('myApp.services', ['ngResource'])
       });
     }
   ])
-  .factory('eventFormatter', ['$rootScope', 'moment', 'chrono',
-    function ($rootScope, moment, chrono) {
+  .factory('eventFormatter', ['$rootScope', 'moment',
+    function ($rootScope, moment) {
 
       return function (form, eventData) {
         if (!form || !eventData) {
@@ -211,6 +210,8 @@ angular.module('myApp.services', ['ngResource'])
       $rootScope.ga_domain = config.ga_domain;
 
       $rootScope.eventsLocation = config.eventsLocation;
+      // Doing it this way so we can use ng-src but still can't figure out the way to load them before other script load.
+      $rootScope.srcI18nLang = "bower_components/angular-i18n/angular-locale_" + $rootScope.lang.toLowerCase() + ".js";
 
       auth.on('login', function (user) {
         $rootScope._user = user;

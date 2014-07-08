@@ -90,11 +90,12 @@
   <script src="bower_components/eventEmitter/EventEmitter.min.js"></script>
   <script src="bower_components/webmaker-auth-client/dist/webmaker-auth-client.min.js"></script>
   <script src="bower_components/momentjs/min/moment-with-langs.min.js"></script>
-  <script src="bower_components/chrono/chrono.min.js"></script>
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
 
   <script src="bower_components/angular/angular.min.js"></script>
+  <script ng-src="{{srcI18nLang}}"></script> <!-- this will load but the loading is slower and it needs to be load before the angular ui -->
+  <script ng-src="bower_components/angular-i18n/angular-locale_{{lang}}.js"></script> <!-- Can't do this because they don't allow concat in script tag even using ng-src -->
   <script src="bower_components/angular-paginate-anything/src/paginate-anything.js"></script>
   <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
   <script src="bower_components/angular-resource/angular-resource.min.js"></script>

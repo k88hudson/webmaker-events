@@ -13,6 +13,45 @@ angular.module('myApp.controllers', [])
       });
     }
   ])
+  .controller('DatepickerDemoCtrl', ['$scope', '$timeout',
+    function ($scope, $timeout) {
+      $scope.today = function() {
+          $scope.dt = new Date();
+        };
+        $scope.today();
+
+        $scope.showWeeks = true;
+        $scope.toggleWeeks = function () {
+          $scope.showWeeks = ! $scope.showWeeks;
+        };
+
+        $scope.clear = function () {
+          $scope.dt = null;
+        };
+
+        // Disable weekend selection
+        $scope.disabled = function(date, mode) {
+          return ( mode === 'day' && ( date.getDay() === 0 || date.getDay() === 6 ) );
+        };
+
+        $scope.toggleMin = function() {
+          $scope.minDate = ( $scope.minDate ) ? null : new Date();
+        };
+        $scope.toggleMin();
+
+        $scope.open = function() {
+          $timeout(function() {
+            $scope.opened = true;
+          });
+        };
+
+        $scope.dateOptions = {
+          'year-format': "'yy'",
+          'starting-day': 1
+        };
+      }
+  ])
+
   .controller('userController', ['$scope', '$rootScope', '$routeParams', 'eventService',
     function ($scope, $rootScope, $routeParams, eventService) {
       $scope.username = $routeParams.id;
@@ -56,8 +95,8 @@ angular.module('myApp.controllers', [])
       });
     }
   ])
-  .controller('addUpdateController', ['$scope', '$location', '$rootScope', '$routeParams', 'moment', 'chrono', 'eventService', 'eventFormatter', 'usernameService', 'analytics', 'rsvpListService',
-    function ($scope, $location, $rootScope, $routeParams, moment, chrono, eventService, eventFormatter, usernameService, analytics, rsvpListService) {
+  .controller('addUpdateController', ['$scope', '$location', '$rootScope', '$routeParams', 'moment', 'eventService', 'eventFormatter', 'usernameService', 'analytics', 'rsvpListService',
+    function ($scope, $location, $rootScope, $routeParams, moment, eventService, eventFormatter, usernameService, analytics, rsvpListService) {
 
       $scope.event = {};
       $scope.eventID = $routeParams.id;
@@ -183,10 +222,10 @@ angular.module('myApp.controllers', [])
       });
 
       // Continuously translate natural language date to JS Date
-      $scope.$watch('event.beginDate', function (newValue) {
+      $scope.$watch('event.beginDate', function (newValue) {console.log(newValue)
         if (newValue) {
-          $scope.event.parsedNaturalStartDate = chrono.parseDate(newValue);
-          $scope.event.isValidStartDate = moment($scope.event.parsedNaturalStartDate).isValid();
+          $scope.event.parsedNaturalStartDate = newValue;
+          $scope.event.isValidStartDate = moment($scope.event.parsedNaturalStartDate).isValid();console.log($scope.event.isValidStartDate)
           $scope.event.humanParsedDate = moment($scope.event.parsedNaturalStartDate).format('MMMM Do YYYY [at] h:mma');
         }
       });
